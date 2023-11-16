@@ -1,0 +1,842 @@
+WindowManager:
+    MainMenu: # Start
+    Cincinnati1:
+    Cincinnati2:
+    Cincinnati3:
+    CincinnatiN: # End
+    VitalesGlucotest_C1:
+    VitalesGlucotest_C2:
+    VitalesGlucotest_C3:
+    Time:
+    Time_N: # End
+    HospitalECV:
+    Tomografia:
+    Hemorragia:
+    CanTrombolisis:
+    CanTrombolisisN: #End
+    Contraindicaciones:
+    ContraindicacionesN:
+    TrombolisisY:
+    TrombolisisN: #End
+
+    NIHSSCalc:
+    OneA:
+    OneB:
+    OneC:
+    Two:
+    Three:
+    Four:
+    FiveA:
+    FiveB:
+    SixA:
+    SixB:
+    Seven:
+    Eight:
+    Nine:
+    Ten:
+    Eleven:
+
+    Tratamiento:
+    Gracias: #End
+
+
+<MainMenu>:
+    name: 'menu'
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+
+        BoxLayout:
+            orientation: "horizontal"
+            Image:
+                source: "Images/P.png"
+            Image:
+                source: "Images/CAHS.png"
+
+        MDLabel:
+            text: "Bienvenido a PATRIC"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "50dp"
+            text_color: 0, 0, 0, 1
+            halign: "center"
+        MDLabel:
+            text: "Asistencia de diagnóstico de Infarto Cerebral Isquémico basado en el protocolo ACLS de la American Heart Association de 2020"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "20dp"
+            text_color: 0, 0, 0, 1
+            halign: "center"
+
+        AnchorLayout:
+            anchor_y: "bottom"
+            pos_hint: {"bottom": 0.5}
+            MDFillRoundFlatButton:
+                text: "Iniciar Procedimiento"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (0.5, 0.5)
+                halign: "center"
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "cnati_1" # flujo normal = "cnati_1"
+
+# Cincinnati Stroke Scale
+
+<Cincinnati1>:
+    name: "cnati_1"
+
+    BoxLayout:
+        padding: "15dp", "15dp"
+        orientation: "vertical"
+        spacing: "40dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "menu"
+        #
+        MDLabel:
+            text: "Parálisis Facial"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            halign: "center"
+            font_size: "35dp"
+            size_hint: (1,0.3)
+        MDLabel:
+            text: "¿El paciente mueve los lados de la cara correctamente?"
+            halign: "center"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "25dp"
+            size_hint: (1,0.2)
+        Image:
+            source: "Images/Señal1.png"
+            halign: "center"
+            valign: "middle"
+            size_hint: (1, 2)
+        BoxLayout:
+            padding: "15dp", "15dp"
+            orientation: "horizontal"
+
+            MDFillRoundFlatButton:
+                text: "Normal"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (1, None)
+                height: "60dp"
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "cnati_2"
+            MDFillRoundFlatButton:
+                text: "Anormal"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (1, None)
+                height: "60dp"
+                md_bg_color: 1,0,0,1
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "VG_C1"
+
+<VitalesGlucotest_C1>:
+    name: "VG_C1"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        spacing: "40dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "cnati_1"
+        #
+        MDLabel:
+            text: "Hemos culminado el procedimiento con éxito.\n\nA continuación se recomienda:"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "20dp"
+            size_hint: 1, None
+            halign: "left"
+        MDLabel:
+            text: "Tomar signos vitales y hemoglucotest"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            size_hint: 1,1
+            halign: "center"
+        MDFillRoundFlatButton:
+            text: "Siguiente"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (1, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "time"
+
+<Cincinnati2>:
+    name: "cnati_2"
+
+    BoxLayout:
+        padding: "15dp", "15dp"
+        orientation: "vertical"
+        spacing: "40dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "cnati_1"
+        #
+        MDLabel:
+            text: "Desviación de los brazos"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            halign: "center"
+            font_size: "35dp"
+            size_hint: 1, 0.3
+        MDLabel:
+            text: "¿El paciente mueve ambos brazos correctamente?"
+            halign: "center"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "20dp"
+            size_hint: 1, 0.2
+        Image:
+            source: "Images/Señal2.png"
+            padding: 0, 10, 0, 0
+            halign: "center"
+            valign: "middle"
+            size_hint: (1,3)
+        BoxLayout:
+            padding: "15dp", "15dp"
+            orientation: "horizontal"
+
+            MDFillRoundFlatButton:
+                text: "Normal"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (1, None)
+                height: "60dp"
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "cnati_3"
+            MDFillRoundFlatButton:
+                text: "Anormal"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (1, None)
+                height: "60dp"
+                md_bg_color: 1,0,0,1
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "VG_C2"
+
+<VitalesGlucotest_C2>:
+    name: "VG_C2"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        spacing: "40dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "cnati_2"
+        #
+        MDLabel:
+            text: "Hemos culminado el procedimiento con éxito.\n\nA continuación se recomienda:"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "20dp"
+            size_hint: 1, None
+            halign: "left"
+        MDLabel:
+            text: "Tomar signos vitales y hemoglucotest"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            size_hint: 1,1
+            halign: "center"
+        MDFillRoundFlatButton:
+            text: "Siguiente"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (1, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "time"
+
+<Cincinnati3>:
+    name: "cnati_3"
+
+    BoxLayout:
+        padding: "15dp", "15dp"
+        orientation: "vertical"
+        spacing: "40dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            halign: "center"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "cnati_2"
+        #
+        MDLabel:
+            text: "Afasia/ Dificultad al hablar"
+            halign: "center"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "35dp"
+            size_hint: 1, 0.4
+        MDLabel:
+            text: "Lea la siguiente frase en voz alta y clara para que el paciente la repita"
+            halign: "center"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "20dp"
+        MDLabel:
+            text: '"A perro viejo no hay quien le enseñe trucos nuevos."'
+            halign: "center"
+            valign: "middle"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+        BoxLayout:
+            padding: "15dp", "15dp"
+            orientation: "horizontal"
+
+            MDFillRoundFlatButton:
+                text: "Normal"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (1, None)
+                height: "60dp"
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "cnati_n"
+            MDFillRoundFlatButton:
+                text: "Anormal"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (1, None)
+                height: "60dp"
+                md_bg_color: 1,0,0,1
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "VG_C3"
+
+<CincinnatiN>:
+    name: "cnati_n"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "cnati_3"
+        #
+        MDLabel:
+            text: "Baja probabilidad de ECV."
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            halign: "center"
+        MDFillRoundFlatButton:
+            text: "Finalizar"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (1, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "menu"
+
+<VitalesGlucotest_C3>:
+    name: "VG_C3"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        spacing: "40dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "cnati_3"
+        #
+        MDLabel:
+            text: "Hemos culminado el procedimiento con éxito.\n\nA continuación se recomienda:"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "20dp"
+            size_hint: 1, None
+            halign: "left"
+        MDLabel:
+            text: "Tomar signos vitales y hemoglucotest"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            size_hint: 1,1
+            halign: "center"
+        MDFillRoundFlatButton:
+            text: "Siguiente"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (1, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "time"
+
+# Tiempo
+
+<Time>:
+    name: "time"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        spacing: "10dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "VG_C3"
+        #
+        MDLabel:
+            text: "¿Cuál fue la hora en la que el paciente estuvo normal por última vez... o empezó a presentar síntomas?"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "25dp"
+        MDFillRoundFlatButton:
+            multiline: True
+            text: "Ingresar Hora"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "30dp"
+            size_hint: (1, 0.5)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            md_bg_color: 0,0.8,0,1
+            on_release:
+                app.show_time_picker()
+        MDFillRoundFlatButton:
+            text: "Continuar"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (1, 0.5)
+            pos_hint: {"center_x": 0.5, "center_y": 0.25}
+            on_release:
+                app.check_elapsed_time()
+        MDLabel:
+            id: selected_time_label
+            text: "Hora seleccionada: "
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "25dp"
+        MDLabel:
+            id: elapsed_time_label
+            text: "Min. transcurridos: "
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "25dp"
+
+<Time_N>:
+    name: "time_n"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "time"
+        #
+        MDLabel:
+            text: "No es candidato para trombólisis. Manejo individual del caso."
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            halign: "center"
+    AnchorLayout:
+        anchor_y: "bottom"
+        padding: "15dp", "15dp"
+        MDFillRoundFlatButton:
+            text: "Finalizar"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "menu"
+
+# Instrucciones
+<HospitalECV>:
+    name: "ECV"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        spacing: "40dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "time"
+        #
+        MDLabel:
+            text: "A continuación se recomienda:"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "20dp"
+            size_hint: 1, 0.4
+            halign: "left"
+        MDLabel:
+            text: "Derivar a hospital capacitado para ECV.\n\nAnunciar llegada al centro receptor.\n\nTomar muestras de laboratorio y colocar dos vías venosas"
+            multiline: True
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "25dp"
+            halign: "center"
+            size_hint: 1, 1
+        AnchorLayout:
+            anchor_y: "bottom"
+            padding: "15dp", "15dp"
+            MDFillRoundFlatButton:
+                text: "Siguiente"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (0.5, 0.15)
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "tomografia"
+
+<Tomografia>:
+    name: "tomografia"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        spacing: "40dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "ECV"
+        #
+        MDLabel:
+            text: "A continuación se recomienda:"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "20dp"
+            size_hint: 1, 0.4
+            halign: "left"
+        MDLabel:
+            text: "Tomografía cerebral.\n\nInterpretación de imagen\n\nEvaluación de neurólogo"
+            multiline: True
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "25dp"
+            halign: "center"
+            size_hint: 1, 1
+        AnchorLayout:
+            anchor_y: "bottom"
+            padding: "15dp", "15dp"
+            MDFillRoundFlatButton:
+                text: "Siguiente"
+                font_name: "fonts/Lato-Bolditalic.ttf"
+                font_size: "30dp"
+                size_hint: (0.5, 0.15)
+                on_release:
+                    root.manager.transition.direction = "left"
+                    app.root.current = "hemo"
+
+# Chequeo Hemorragia
+
+<Hemorragia>:
+    name:"hemo"
+
+    BoxLayout:
+        padding: "15dp", "15dp"
+        orientation: "vertical"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "tomografia"
+        #
+        MDLabel:
+            text: "¿Las imágenes muestran hemorragia?"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "35dp"
+            size_hint: (1,1)
+    BoxLayout:
+        padding: "15dp", "15dp"
+        orientation: "horizontal"
+
+        MDFillRoundFlatButton:
+            text: "Si"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            md_bg_color: 1,0,0,1
+            on_release:
+                app.root.current = "c_t_n"
+        MDFillRoundFlatButton:
+            text: "No"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            md_bg_color: 0,0.8,0,1
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "c_t"
+
+<CanTrombolisis>:
+    name: "c_t"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                root.manager.current = "hemo"
+        #
+        MDLabel:
+            text: "¡Candidato a trombólisis!\n\nComprobar contraindicaciones y calcular NIHSS."
+            multiline: False
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "35dp"
+            halign: "center"
+    AnchorLayout:
+        anchor_y: "bottom"
+        padding: "15dp", "15dp"
+        MDFillRoundFlatButton:
+            text: "Siguiente"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "contraindicaciones"
+
+<CanTrombolisisN>:
+    name: "c_t_n"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "hemo"
+        #
+        MDLabel:
+            text: "No es candidato a trombólisis.\n\nContinuar manejo según protocolo de hemorragia intracraneal"
+            multiline: True
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            halign: "center"
+    AnchorLayout:
+        anchor_y: "bottom"
+        padding: "15dp", "15dp"
+        MDFillRoundFlatButton:
+            text: "Finalizar"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "menu"
+
+# Chequeo Contraindicaciones y NIHSS
+<Contraindicaciones>:
+    name: "contraindicaciones"
+
+<ContraindicacionesN>:
+    name: "contra_n"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "contraindicaciones"
+        #
+        MDLabel:
+            text: "No se puede realizar trombólisis dado a lo indicado previamente"
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            halign: "center"
+        MDFillRoundFlatButton:
+            text: "Finalizar"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (1, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "menu"
+
+<TrombolisisY>:
+    name: "t_y"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "contraindicaciones"
+        #
+        MDLabel:
+            text: "Calcule el NIHSS."
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            halign: "center"
+    AnchorLayout:
+        anchor_y: "bottom"
+        padding: "15dp", "15dp"
+        MDFillRoundFlatButton:
+            text: "Siguiente"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "nihss"
+############
+# Calculadora NIHSS
+
+<NIHSSCalc>:
+    name: "nihss"
+
+<OneA>:
+    name: "1A"
+
+<OneB>:
+    name: "1B"
+
+<OneC>:
+    name: "1C"
+
+<Two>:
+    name: "2"
+
+<Three>:
+    name: "3"
+
+<Four>:
+    name: "4"
+
+<FiveA>:
+    name: "5A"
+
+<FiveB>:
+    name: "5B"
+
+<SixA>:
+    name: "6A"
+
+<SixB>:
+    name: "6B"
+
+<Seven>:
+    name: "7"
+
+<Eight>:
+    name: "8"
+
+<Nine>:
+    name: "9"
+
+<Ten>:
+    name: "10"
+
+<Eleven>:
+    name: "11"
+
+#############
+
+<TrombolisisN>:
+    name: "t_n"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "nihss"
+        #
+        MDLabel:
+            text: "No es candidato para trombólisis."
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            halign: "center"
+    AnchorLayout:
+        anchor_y: "bottom"
+        padding: "15dp", "15dp"
+        MDFillRoundFlatButton:
+            text: "Finalizar"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "menu"
+
+<Tratamiento>:
+    name: "trt"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        # Go back
+        MDFillRoundFlatButton:
+            text: "Anterior"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            on_release:
+                root.manager.transition.direction = "right"
+                app.root.current = "nihss"
+        #
+        MDLabel:
+            text: "- Opción 1: Alteplase 0.9 mg/kg, máximo 90 mg. Infusión durante 1 hora.\n\n- Opción 2: Tenecteplase, 0.4 mg/kg, máximo 90 mg. Administrar embolo."
+            multiline: True
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "25dp"
+            halign: "center"
+    AnchorLayout:
+        anchor_y: "bottom"
+        padding: "15dp", "15dp"
+        MDFillRoundFlatButton:
+            text: "Siguiente"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "thx"
+
+<Gracias>:
+    name: "thx"
+    BoxLayout:
+        orientation: "vertical"
+        padding: "15dp", "15dp"
+        MDLabel:
+            text: "Gracias por utilizar nuestro programa."
+            font_name: "fonts/Lato-Italic.ttf"
+            font_size: "40dp"
+            halign: "center"
+    AnchorLayout:
+        anchor_y: "bottom"
+        padding: "15dp", "15dp"
+        MDFillRoundFlatButton:
+            text: "Finalizar"
+            font_name: "fonts/Lato-Bolditalic.ttf"
+            font_size: "30dp"
+            size_hint: (0.5, 0.15)
+            on_release:
+                root.manager.transition.direction = "left"
+                app.root.current = "menu"
