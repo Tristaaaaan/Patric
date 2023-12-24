@@ -21,8 +21,12 @@ from kivymd.uix.button import MDFillRoundFlatButton
 from kivymd.uix.dialog import MDDialog
 from datetime import datetime, time, timedelta
 
-# print(kivy.__version__)
-# print(kivymd.__version__)
+print(kivy.__version__)
+print(kivymd.__version__)
+
+# kivy version = 2.2.1
+# kivymd version = 1.1.1
+# cython = 3.0.5
 
 class WindowManager(MDScreenManager):
     pass
@@ -119,7 +123,7 @@ class Contraindicaciones(MDScreen):
         self.scrollview_contraindicaciones = MDScrollView(size_hint=(1, None), size = (Window.width, Window.height))
 
         # GridLayout
-        layout_contraindicaciones = MDGridLayout(orientation = "lr-tb", spacing = "100dp", padding = "20dp", size_hint_x = 1, size_hint_y = None, cols = 2)
+        layout_contraindicaciones = MDGridLayout(orientation = "lr-tb", spacing = "40dp", padding = "20dp", size_hint_x = 1, size_hint_y = None, cols = 2)
         layout_contraindicaciones.bind(minimum_height = layout_contraindicaciones.setter("height"))
 
         # Go Back Button:
@@ -142,7 +146,7 @@ class Contraindicaciones(MDScreen):
 
         #title
         title_label = MDLabel(text = "Contraindicaciones", halign="left")
-        title_label.font_size = "15dp"
+        title_label.font_size = "25dp"
         title_label.size_hint_y = None
         title_label.size_hint_x = 1
         title_label.font_name = "fonts/Lato-Bolditalic.ttf"
@@ -169,10 +173,14 @@ class Contraindicaciones(MDScreen):
             size_checkbox = dp(32)
             size_labels = dp(12)
             checkbox = MDCheckbox(size_hint=(0.5, None), size=(size_checkbox, size_checkbox))
+            invisible_labela = MDLabel(text = "", size_hint = (0.5, None), size = (size_labels, size_labels))
             label = MDLabel(text=contraindicacion, size_hint=(0.8, None), size=(size_labels, size_labels), font_size = "10dp", multiline = True)
             label.font_name = "fonts/Lato-Italic.ttf"
+            invisible_labelb = MDLabel(text = "", size_hint = (0.5, None), size = (size_labels, size_labels))
             layout_contraindicaciones.add_widget(label)
             layout_contraindicaciones.add_widget(checkbox)
+            layout_contraindicaciones.add_widget(invisible_labela)
+            layout_contraindicaciones.add_widget(invisible_labelb)
 
             self.checkboxes.append(checkbox)
 
@@ -301,7 +309,7 @@ class NIHSSCalc(MDScreen):
 
             return question_button
 
-        questions = ["1A. Nivel de Consciencia", "1B. Preguntas NDC", "1C. Órdenes NDC", "2. Mirada Conjugada", "3. Campos Visuales", "4. Parálisis Facial", "5A. Extremidades Superiores - Brazo derecho", "5B. Extremidades Superiores - Brazo izquierdo", "6A. Extremidades inferiores - Pierna derecha", "6B. Extremidades inferiores - Pierna izquierda", "7. Ataxia", "8. Sensibilidad", "9. Lenguaje", "10. Disartria", "11. Extinción y Falta de Atención"]
+        questions = ["1A. Nivel de Conciencia", "1B. Preguntas NDC", "1C. Órdenes NDC", "2. Mirada Conjugada", "3. Campos Visuales", "4. Parálisis Facial", "5A. Extremidades Superiores - Brazo derecho", "5B. Extremidades Superiores - Brazo izquierdo", "6A. Extremidades inferiores - Pierna derecha", "6B. Extremidades inferiores - Pierna izquierda", "7. Ataxia", "8. Sensibilidad", "9. Lenguaje", "10. Disartria", "11. Extinción y Falta de Atención"]
         screen_names = ["1A", "1B", "1C", "2", "3", "4", "5A", "5B", "6A", "6B", "7", "8", "9", "10", "11"]
 
         questions_and_screens = dict(zip(questions, screen_names))
@@ -873,6 +881,7 @@ class FiveA(MDScreen):
         title_label.font_size = dp(15)
         title_label.size_hint = (1, None)
         title_label.font_name = "fonts/Lato-Bolditalic.ttf"
+        title_label.pos_hint = {'top': 0.5}
 
         self.main_layout.add_widget(title_label)
 
@@ -957,6 +966,7 @@ class FiveB(MDScreen):
         title_label.font_size = dp(15)
         title_label.size_hint = (1, None)
         title_label.font_name = "fonts/Lato-Bolditalic.ttf"
+        title_label.pos_hint = {'top': 0.5}
 
         self.main_layout.add_widget(title_label)
 
@@ -1041,6 +1051,7 @@ class SixA(MDScreen):
         title_label.font_size = dp(15)
         title_label.size_hint = (1, None)
         title_label.font_name = "fonts/Lato-Bolditalic.ttf"
+        title_label.pos_hint = {'top': 0.5}
 
         self.main_layout.add_widget(title_label)
 
@@ -1124,6 +1135,7 @@ class SixB(MDScreen):
         title_label.font_size = dp(15)
         title_label.size_hint = (1, None)
         title_label.font_name = "fonts/Lato-Bolditalic.ttf"
+        title_label.pos_hint = {'top': 0.5}
 
         self.main_layout.add_widget(title_label)
 

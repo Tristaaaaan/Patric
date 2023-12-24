@@ -109,7 +109,7 @@ WindowManager:
             font_size: "25dp"
             size_hint: (1,0.2)
         Image:
-            source: "Images/Señal1.png"
+            source: "Images/Senal1.png"
             halign: "center"
             valign: "middle"
             size_hint: (1, 2)
@@ -200,7 +200,7 @@ WindowManager:
             font_size: "20dp"
             size_hint: 1, 0.2
         Image:
-            source: "Images/Señal2.png"
+            source: "Images/Senal2.png"
             padding: 0, 10, 0, 0
             halign: "center"
             valign: "middle"
@@ -573,6 +573,7 @@ WindowManager:
             size_hint: (0.5, 0.15)
             md_bg_color: 1,0,0,1
             on_release:
+                root.manager.transition.direction = "left"
                 app.root.current = "c_t_n"
         MDFillRoundFlatButton:
             text: "No"
@@ -801,8 +802,9 @@ WindowManager:
                 root.manager.transition.direction = "right"
                 app.root.current = "nihss"
         #
+
         MDLabel:
-            text: "- Opción 1: Alteplase 0.9 mg/kg, máximo 90 mg. Infusión durante 1 hora.\n\n- Opción 2: Tenecteplase, 0.4 mg/kg, máximo 90 mg. Administrar embolo."
+            text: "Las alternativas de tratamiento son:\n\n- Opción 1: Alteplase 0.9 mg/kg, máximo 90 mg. Infusión durante 1 hora.\n\n- Opción 2: Tenecteplase, 0.4 mg/kg, máximo 90 mg. Administrar embolo."
             multiline: True
             font_name: "fonts/Lato-Italic.ttf"
             font_size: "25dp"
